@@ -449,3 +449,21 @@ ANALYZE → SDD → PLAN_REVIEW → PLAN_APPROVED → IMPLEMENT → DEV_REVIEW �
 5. **Trả lời rõ ngay lần đầu** (kèm lý do khi từ chối) — mỗi vòng làm lại tốn thêm một lượt agent.
 6. **Giữ `lessons.md` ngắn và đúng** — càng dùng lâu, số vòng sửa càng giảm.
 7. Xem quota: `/usage`. Xem plugin tốn bao nhiêu token mỗi phiên: `claude plugin details ai-team@dinh-tools`.
+
+
+Agents (vai trò)
+
+ai-team:teamlead: Tech Lead. Đọc tài liệu, phân tích yêu cầu, xếp size task (S/M/L), khảo sát code hiện có, viết SDD kèm diagram Mermaid, review source của dev. Agent này không viết code.
+ai-team:dev: Senior developer. Review SDD, lập checklist các bước implement để anh tick duyệt, rồi implement đúng những bước đã duyệt. Agent này cũng sửa bug tester báo, xử lý góp ý review và tự review source. Điểm nào chưa rõ thì hỏi anh, không tự đoán.
+ai-team:tester: QC/QA độc lập. Review SDD dưới góc nhìn kiểm thử, lập danh sách testcase để anh duyệt, viết unit test và kiểm thử. Agent này không bao giờ sửa code production, gặp lỗi thì báo lại cho dev.
+
+Skills (quy trình)
+
+/ai-team:ship: chạy toàn bộ quy trình, gồm SDD → review → checklist và testcase → code → review source → test → bài học. Size S/M/L sẽ tự rút gọn các bước.
+/ai-team:sdd: chỉ phần Teamlead phân tích và viết SDD.
+/ai-team:plan: Dev và Tester review SDD, sau đó lập checklist và testcase. Bước này chưa code.
+/ai-team:dev: implement các mục đã tick, sau đó Teamlead review.
+/ai-team:test: viết unit test và kiểm thử theo testcase đã tick.
+/ai-team:review: Dev review diff, file hoặc thư mục theo rule của project. Skill này không sửa file.
+/ai-team:resume: tiếp tục task đang dở, dùng sau /clear hoặc khi mở phiên mới.
+/ai-team:history: xem lịch sử làm việc, các quyết định, lỗi còn mở và bài học.
