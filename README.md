@@ -131,9 +131,10 @@ Tester không đọc `dev-*.md` để giữ tính độc lập.
 - Giữ `CLAUDE.md` ≤ 150 dòng — nó được nạp vào mọi agent ở mọi lượt.
 - Xem quota bằng `/usage`.
 
-## Cập nhật plugin
-Sửa → tăng `version` trong `.claude-plugin/plugin.json` → push → trên máy:
+## Phát hành phiên bản mới
 ```bash
-claude plugin update ai-team@dinh-tools
+./scripts/release.sh patch "Mô tả thay đổi"     # hoặc minor / major / x.y.z
 ```
-(hoặc `/plugin` → **Marketplaces** → `dinh-tools` → **Update marketplace**), rồi mở phiên `claude` mới. Bật **Enable auto-update** ở cùng màn hình để tự cập nhật.
+Script kiểm tra plugin → tăng version → ghi `CHANGELOG.md` → commit + tag → push → cập nhật plugin trên máy. Chi tiết: [HUONG-DAN.md mục 4](HUONG-DAN.md#4-cập-nhật-và-gỡ-plugin). Lịch sử phiên bản: [CHANGELOG.md](CHANGELOG.md).
+
+Chỉ cập nhật plugin trên máy (không phát hành): `./scripts/release.sh update` hoặc `claude plugin update ai-team@dinh-tools`, rồi mở phiên `claude` mới.

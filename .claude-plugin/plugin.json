@@ -1,6 +1,8 @@
 {
   "name": "ai-team",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Đội AI 3 vai trò: Teamlead (phân tích, SDD + diagram), Dev (review SDD, code chuẩn), Tester (QC/QA độc lập, unit test). Mọi điểm chưa rõ đều hỏi người dùng duyệt.",
-  "author": { "name": "Dinh" }
+  "author": {
+    "name": "Dinh"
+  }
 }

@@ -128,10 +128,35 @@ Mỗi thành viên chạy 1 lần: `claude plugin install ai-team@dinh-tools --s
 
 ## 4. Cập nhật và gỡ plugin
 
-### Khi anh sửa plugin
+### Khi anh sửa plugin — dùng script (khuyên dùng)
+
+Sửa file xong, chạy **một lệnh** trong thư mục plugin:
+
+```bash
+cd /Users/DinhTC/Documents/DinhTC/AI/ai-team
+./scripts/release.sh patch "Mô tả thay đổi"
+```
+
+Script tự làm hết: kiểm tra plugin hợp lệ → tăng version → ghi `CHANGELOG.md` → commit → tag `vX.Y.Z` → push → cập nhật plugin trên máy.
+
+| Lệnh | Version | Dùng khi |
+|---|---|---|
+| `./scripts/release.sh patch "..."` | 1.4.1 → 1.4.2 | Sửa lỗi, chỉnh câu chữ prompt |
+| `./scripts/release.sh minor "..."` | 1.4.1 → 1.5.0 | Thêm lệnh / tính năng mới |
+| `./scripts/release.sh major "..."` | 1.4.1 → 2.0.0 | Đổi quy trình lớn |
+| `./scripts/release.sh 1.6.0 "..."` | đặt cụ thể | |
+| `./scripts/release.sh patch "..." --dry-run` | — | Xem trước, không thay đổi gì |
+| `./scripts/release.sh patch "..." --no-push` | tăng | Commit + tag trên máy, chưa push |
+| `./scripts/release.sh update` | giữ nguyên | Chỉ cập nhật plugin trên máy (vd máy thứ 2) |
+
+Xong → mở phiên `claude` mới (hoặc `/reload-plugins`). Kiểm tra: `claude plugin list` thấy version mới.
+
+> Script yêu cầu đang ở nhánh `main`. Lần đầu chạy nếu báo `Permission denied`: `chmod +x scripts/release.sh`.
+
+### Khi anh sửa plugin — làm tay
 
 1. Sửa file trong `/Users/DinhTC/Documents/DinhTC/AI/ai-team`
-2. Tăng `version` trong `.claude-plugin/plugin.json` (vd `1.4.0` → `1.4.1`)
+2. Tăng `version` trong `.claude-plugin/plugin.json` (vd `1.4.1` → `1.4.2`)
 3. Commit + push
 4. Cập nhật trên máy, chọn **một** cách:
 
