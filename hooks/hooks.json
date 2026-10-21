@@ -1,0 +1,18 @@
+{
+  "description": "ai-team guard: teamlead chỉ ghi SDD, dev không sửa test/SDD, tester chỉ ghi test, agent không ghi lịch sử và không commit/push",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/guard.py"],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

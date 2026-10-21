@@ -1,6 +1,6 @@
 {
   "name": "ai-team",
-  "version": "1.0.0",
-  "description": "Đội AI 2 vai trò: Dev (senior, phân tích kỹ trước khi code) và Tester (độc lập, test theo nghiệp vụ, không sửa code).",
+  "version": "1.4.0",
+  "description": "Đội AI 3 vai trò: Teamlead (phân tích, SDD + diagram), Dev (review SDD, code chuẩn), Tester (QC/QA độc lập, unit test). Mọi điểm chưa rõ đều hỏi người dùng duyệt.",
   "author": { "name": "Dinh" }
 }
