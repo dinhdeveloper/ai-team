@@ -1,0 +1,6 @@
+{
+  "name": "ai-team",
+  "version": "1.0.0",
+  "description": "Đội AI 2 vai trò: Dev (senior, phân tích kỹ trước khi code) và Tester (độc lập, test theo nghiệp vụ, không sửa code).",
+  "author": { "name": "Dinh" }
+}

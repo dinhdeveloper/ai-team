@@ -1,0 +1,11 @@
+{
+  "name": "dinh-tools",
+  "owner": { "name": "Dinh" },
+  "plugins": [
+    {
+      "name": "ai-team",
+      "source": "./",
+      "description": "Dev + Tester agents cho mọi project"
+    }
+  ]
+}
